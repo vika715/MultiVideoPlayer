@@ -3,6 +3,7 @@ package com.example.multivideoplayer;
 import android.media.MediaCodec;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -38,7 +39,7 @@ public class VideoPlayerFragment extends Fragment implements SurfaceHolder.Callb
     private int mPlayerPosition;
     private MediaCodecVideoTrackRenderer mVideoRenderer;
     private RendererBuilder mBuilder;
-
+    private final Handler mHandler = new Handler();
 
     public VideoPlayerFragment() {
     }
@@ -133,6 +134,8 @@ public class VideoPlayerFragment extends Fragment implements SurfaceHolder.Callb
         switch (mContentType) {
             case Util.TYPE_OTHER:
                 return new ExtractorRendererBuilder(getContext(), mUri);
+            case Util.TYPE_HLS:
+                return new HlsRendererBuilder(getContext(), mUri, mHandler);
             default:
                 throw new IllegalStateException();
         }

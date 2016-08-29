@@ -14,15 +14,4 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"/>
-    <!--fragment
-        android:id="@+id/first_video_fragment"
-        android:layout_width="fill_parent"
-        android:layout_height="260dp"
-        class=""/>
-    <fragment
-        android:layout_width="fill_parent"
-        android:layout_height="260dp"
-        android:layout_below="@id/first_video_fragment"
-        class=""
-        android:id="@+id/second_video_fragment"/-->
 </RelativeLayout>
